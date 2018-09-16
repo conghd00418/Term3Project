@@ -1,0 +1,35 @@
+﻿@model ASP.NET_MVC.Models.LichChieuPhim
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LichChieuPhim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhSachPhim.TenPhim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhSachPhim.TenPhim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhSachPhongChieu.TenPhongChieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhSachPhongChieu.TenPhongChieu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LichChieuId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
