@@ -9,11 +9,12 @@ namespace ASP.NET_MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private ProjectDatabaseEntities db = new ProjectDatabaseEntities();
+        private ProjectDatabaseEntitiesFinal db = new ProjectDatabaseEntitiesFinal();
 
         public ActionResult Index()
         {
-            return View(db.DanhSachPhims.ToList());
+            var danhsachphim = db.DanhSachPhims.ToList();
+            return View(danhsachphim);
         }
 
         public ActionResult About()

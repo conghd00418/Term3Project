@@ -163,31 +163,31 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhSachPhim.cs">
-      <DependentUpon>Movie.tt</DependentUpon>
+      <DependentUpon>ModelMovies.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhSachPhongChieu.cs">
-      <DependentUpon>Movie.tt</DependentUpon>
+      <DependentUpon>ModelMovies.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LichChieuPhim.cs">
-      <DependentUpon>Movie.tt</DependentUpon>
+      <DependentUpon>ModelMovies.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Movie.Context.cs">
+    <Compile Include="Models\ModelMovies.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Movie.Context.tt</DependentUpon>
+      <DependentUpon>ModelMovies.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Movie.cs">
+    <Compile Include="Models\ModelMovies.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Movie.tt</DependentUpon>
+      <DependentUpon>ModelMovies.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Movie.Designer.cs">
+    <Compile Include="Models\ModelMovies.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Movie.edmx</DependentUpon>
+      <DependentUpon>ModelMovies.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>Movie.tt</DependentUpon>
+      <DependentUpon>ModelMovies.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -210,27 +210,27 @@
     <Content Include="IMG\phim2.jpg" />
     <Content Include="IMG\phim3.jpg" />
     <Content Include="IMG\phim4.jpg" />
-    <Content Include="Models\Movie.Context.tt">
+    <Content Include="Models\ModelMovies.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Movie.edmx</DependentUpon>
-      <LastGenOutput>Movie.Context.cs</LastGenOutput>
+      <DependentUpon>ModelMovies.edmx</DependentUpon>
+      <LastGenOutput>ModelMovies.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Movie.tt">
+    <Content Include="Models\ModelMovies.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Movie.edmx</DependentUpon>
-      <LastGenOutput>Movie.cs</LastGenOutput>
+      <DependentUpon>ModelMovies.edmx</DependentUpon>
+      <LastGenOutput>ModelMovies.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\Movie.edmx">
+    <EntityDeploy Include="Models\ModelMovies.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Movie.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelMovies.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Movie.edmx.diagram">
-      <DependentUpon>Movie.edmx</DependentUpon>
+    <Content Include="Models\ModelMovies.edmx.diagram">
+      <DependentUpon>ModelMovies.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
