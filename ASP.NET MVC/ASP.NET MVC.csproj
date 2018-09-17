@@ -206,10 +206,14 @@
     <Content Include="Content\Site.css" />
     <Content Include="IMG\banner1.jpg" />
     <Content Include="IMG\banner2.jpg" />
-    <Content Include="IMG\phim1.jpg" />
-    <Content Include="IMG\phim2.jpg" />
-    <Content Include="IMG\phim3.jpg" />
-    <Content Include="IMG\phim4.jpg" />
+    <Content Include="IMG\baogiohete.jpg" />
+    <Content Include="IMG\changvocuaem.jpg" />
+    <Content Include="IMG\hoandoi.jpg" />
+    <Content Include="IMG\meomapdiphuot.jpg" />
+    <Content Include="IMG\nhiemvubatkhathi.jpg" />
+    <Content Include="IMG\oanhontrongmua.jpg" />
+    <Content Include="IMG\thenun.jpg" />
+    <Content Include="IMG\tranbongkinhhoang.jpg" />
     <Content Include="Models\ModelMovies.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelMovies.edmx</DependentUpon>
