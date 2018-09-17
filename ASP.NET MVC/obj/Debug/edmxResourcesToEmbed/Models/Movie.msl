@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Term3_Project_MovieModelStoreContainer" CdmEntityContainer="Term3_Project_MovieEntities">
+  <EntityContainerMapping StorageEntityContainer="ProjectDatabaseModelStoreContainer" CdmEntityContainer="ProjectDatabaseEntities">
     <EntitySetMapping Name="DanhSachPhims">
-      <EntityTypeMapping TypeName="Term3_Project_MovieModel.DanhSachPhim">
-        <MappingFragment StoreEntitySet="DanhSachPhim">
-          <ScalarProperty Name="Image" ColumnName="Image" />
+      <EntityTypeMapping TypeName="ProjectDatabaseModel.DanhSachPhim">
+        <MappingFragment StoreEntitySet="DanhSachPhims">
           <ScalarProperty Name="PhimId" ColumnName="PhimId" />
           <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
           <ScalarProperty Name="DaoDien" ColumnName="DaoDien" />
           <ScalarProperty Name="ThoiLuong" ColumnName="ThoiLuong" />
           <ScalarProperty Name="XuatXu" ColumnName="XuatXu" />
           <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DanhSachPhongChieux">
-      <EntityTypeMapping TypeName="Term3_Project_MovieModel.DanhSachPhongChieu">
-        <MappingFragment StoreEntitySet="DanhSachPhongChieu">
+      <EntityTypeMapping TypeName="ProjectDatabaseModel.DanhSachPhongChieu">
+        <MappingFragment StoreEntitySet="DanhSachPhongChieux">
           <ScalarProperty Name="PhongChieuId" ColumnName="PhongChieuId" />
           <ScalarProperty Name="TenPhongChieu" ColumnName="TenPhongChieu" />
           <ScalarProperty Name="SoLuongGhe" ColumnName="SoLuongGhe" />
@@ -24,8 +24,8 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LichChieuPhims">
-      <EntityTypeMapping TypeName="Term3_Project_MovieModel.LichChieuPhim">
-        <MappingFragment StoreEntitySet="LichChieuPhim">
+      <EntityTypeMapping TypeName="ProjectDatabaseModel.LichChieuPhim">
+        <MappingFragment StoreEntitySet="LichChieuPhims">
           <ScalarProperty Name="LichChieuId" ColumnName="LichChieuId" />
           <ScalarProperty Name="PhimId" ColumnName="PhimId" />
           <ScalarProperty Name="PhongChieuId" ColumnName="PhongChieuId" />
@@ -33,7 +33,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="Term3_Project_MovieModel.sysdiagram">
+      <EntityTypeMapping TypeName="ProjectDatabaseModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />

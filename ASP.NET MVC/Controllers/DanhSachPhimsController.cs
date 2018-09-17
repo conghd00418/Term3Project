@@ -12,7 +12,7 @@ namespace ASP.NET_MVC.Controllers
 {
     public class DanhSachPhimsController : Controller
     {
-        private Term3_Project_MovieEntities db = new Term3_Project_MovieEntities();
+        private ProjectDatabaseEntities db = new ProjectDatabaseEntities();
 
         // GET: DanhSachPhims
         public ActionResult Index()

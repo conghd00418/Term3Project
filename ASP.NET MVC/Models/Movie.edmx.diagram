@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7c3011dd65824a9faed17a77378f6587" Name="Diagram1">
-        <EntityTypeShape EntityType="Term3_Project_MovieModel.DanhSachPhim" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Term3_Project_MovieModel.DanhSachPhongChieu" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="Term3_Project_MovieModel.LichChieuPhim" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Term3_Project_MovieModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <AssociationConnector Association="Term3_Project_MovieModel.FK_LichChieuPhim_DanhSachPhim" ManuallyRouted="false" />
-        <AssociationConnector Association="Term3_Project_MovieModel.FK_LichChieuPhim_DanhSachPhongChieu" ManuallyRouted="false" />
+      <Diagram DiagramId="ca534a7e55284a6580c2725f5115cfc1" Name="Diagram1" ZoomLevel="78">
+        <EntityTypeShape EntityType="ProjectDatabaseModel.DanhSachPhim" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectDatabaseModel.DanhSachPhongChieu" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectDatabaseModel.LichChieuPhim" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectDatabaseModel.sysdiagram" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="ProjectDatabaseModel.FK_LichChieuPhim_DanhSachPhim" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectDatabaseModel.FK_LichChieuPhim_DanhSachPhongChieu" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

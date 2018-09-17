@@ -4,8 +4,8 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Term3_Project_MovieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="DanhSachPhim">
+      <Schema Namespace="ProjectDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DanhSachPhims">
           <Key>
             <PropertyRef Name="PhimId" />
           </Key>
@@ -15,9 +15,9 @@
           <Property Name="ThoiLuong" Type="nvarchar" MaxLength="50" />
           <Property Name="XuatXu" Type="nvarchar" MaxLength="50" />
           <Property Name="NoiDung" Type="nvarchar" MaxLength="50" />
-          <Property Name="Image" Type="image" />
+          <Property Name="Image" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="DanhSachPhongChieu">
+        <EntityType Name="DanhSachPhongChieux">
           <Key>
             <PropertyRef Name="PhongChieuId" />
           </Key>
@@ -25,7 +25,7 @@
           <Property Name="TenPhongChieu" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SoLuongGhe" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="LichChieuPhim">
+        <EntityType Name="LichChieuPhims">
           <Key>
             <PropertyRef Name="LichChieuId" />
           </Key>
@@ -44,51 +44,52 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_LichChieuPhim_DanhSachPhim">
-          <End Role="DanhSachPhim" Type="Self.DanhSachPhim" Multiplicity="1">
+          <End Role="DanhSachPhims" Type="Self.DanhSachPhims" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="LichChieuPhim" Type="Self.LichChieuPhim" Multiplicity="*" />
+          <End Role="LichChieuPhims" Type="Self.LichChieuPhims" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DanhSachPhim">
+            <Principal Role="DanhSachPhims">
               <PropertyRef Name="PhimId" />
             </Principal>
-            <Dependent Role="LichChieuPhim">
+            <Dependent Role="LichChieuPhims">
               <PropertyRef Name="PhimId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LichChieuPhim_DanhSachPhongChieu">
-          <End Role="DanhSachPhongChieu" Type="Self.DanhSachPhongChieu" Multiplicity="1">
+          <End Role="DanhSachPhongChieux" Type="Self.DanhSachPhongChieux" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="LichChieuPhim" Type="Self.LichChieuPhim" Multiplicity="*" />
+          <End Role="LichChieuPhims" Type="Self.LichChieuPhims" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DanhSachPhongChieu">
+            <Principal Role="DanhSachPhongChieux">
               <PropertyRef Name="PhongChieuId" />
             </Principal>
-            <Dependent Role="LichChieuPhim">
+            <Dependent Role="LichChieuPhims">
               <PropertyRef Name="PhongChieuId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Term3_Project_MovieModelStoreContainer">
-          <EntitySet Name="DanhSachPhim" EntityType="Self.DanhSachPhim" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DanhSachPhongChieu" EntityType="Self.DanhSachPhongChieu" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LichChieuPhim" EntityType="Self.LichChieuPhim" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="ProjectDatabaseModelStoreContainer">
+          <EntitySet Name="DanhSachPhims" EntityType="Self.DanhSachPhims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DanhSachPhongChieux" EntityType="Self.DanhSachPhongChieux" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LichChieuPhims" EntityType="Self.LichChieuPhims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_LichChieuPhim_DanhSachPhim" Association="Self.FK_LichChieuPhim_DanhSachPhim">
-            <End Role="DanhSachPhim" EntitySet="DanhSachPhim" />
-            <End Role="LichChieuPhim" EntitySet="LichChieuPhim" />
+            <End Role="DanhSachPhims" EntitySet="DanhSachPhims" />
+            <End Role="LichChieuPhims" EntitySet="LichChieuPhims" />
           </AssociationSet>
           <AssociationSet Name="FK_LichChieuPhim_DanhSachPhongChieu" Association="Self.FK_LichChieuPhim_DanhSachPhongChieu">
-            <End Role="DanhSachPhongChieu" EntitySet="DanhSachPhongChieu" />
-            <End Role="LichChieuPhim" EntitySet="LichChieuPhim" />
+            <End Role="DanhSachPhongChieux" EntitySet="DanhSachPhongChieux" />
+            <End Role="LichChieuPhims" EntitySet="LichChieuPhims" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Term3_Project_MovieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ProjectDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="DanhSachPhim">
           <Key>
             <PropertyRef Name="PhimId" />
@@ -99,8 +100,8 @@
           <Property Name="ThoiLuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="XuatXu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NoiDung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="LichChieuPhims" Relationship="Self.FK_LichChieuPhim_DanhSachPhim" FromRole="DanhSachPhim" ToRole="LichChieuPhim" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="LichChieuPhims" Relationship="Self.FK_LichChieuPhim_DanhSachPhim" FromRole="DanhSachPhims" ToRole="LichChieuPhims" />
         </EntityType>
         <EntityType Name="DanhSachPhongChieu">
           <Key>
@@ -109,7 +110,7 @@
           <Property Name="PhongChieuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenPhongChieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SoLuongGhe" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="LichChieuPhims" Relationship="Self.FK_LichChieuPhim_DanhSachPhongChieu" FromRole="DanhSachPhongChieu" ToRole="LichChieuPhim" />
+          <NavigationProperty Name="LichChieuPhims" Relationship="Self.FK_LichChieuPhim_DanhSachPhongChieu" FromRole="DanhSachPhongChieux" ToRole="LichChieuPhims" />
         </EntityType>
         <EntityType Name="LichChieuPhim">
           <Key>
@@ -118,8 +119,8 @@
           <Property Name="LichChieuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PhimId" Type="Int32" Nullable="false" />
           <Property Name="PhongChieuId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="DanhSachPhim" Relationship="Self.FK_LichChieuPhim_DanhSachPhim" FromRole="LichChieuPhim" ToRole="DanhSachPhim" />
-          <NavigationProperty Name="DanhSachPhongChieu" Relationship="Self.FK_LichChieuPhim_DanhSachPhongChieu" FromRole="LichChieuPhim" ToRole="DanhSachPhongChieu" />
+          <NavigationProperty Name="DanhSachPhim" Relationship="Self.FK_LichChieuPhim_DanhSachPhim" FromRole="LichChieuPhims" ToRole="DanhSachPhims" />
+          <NavigationProperty Name="DanhSachPhongChieu" Relationship="Self.FK_LichChieuPhim_DanhSachPhongChieu" FromRole="LichChieuPhims" ToRole="DanhSachPhongChieux" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -132,45 +133,45 @@
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_LichChieuPhim_DanhSachPhim">
-          <End Role="DanhSachPhim" Type="Self.DanhSachPhim" Multiplicity="1">
+          <End Role="DanhSachPhims" Type="Self.DanhSachPhim" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="LichChieuPhim" Type="Self.LichChieuPhim" Multiplicity="*" />
+          <End Role="LichChieuPhims" Type="Self.LichChieuPhim" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DanhSachPhim">
+            <Principal Role="DanhSachPhims">
               <PropertyRef Name="PhimId" />
             </Principal>
-            <Dependent Role="LichChieuPhim">
+            <Dependent Role="LichChieuPhims">
               <PropertyRef Name="PhimId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LichChieuPhim_DanhSachPhongChieu">
-          <End Role="DanhSachPhongChieu" Type="Self.DanhSachPhongChieu" Multiplicity="1">
+          <End Role="DanhSachPhongChieux" Type="Self.DanhSachPhongChieu" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="LichChieuPhim" Type="Self.LichChieuPhim" Multiplicity="*" />
+          <End Role="LichChieuPhims" Type="Self.LichChieuPhim" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DanhSachPhongChieu">
+            <Principal Role="DanhSachPhongChieux">
               <PropertyRef Name="PhongChieuId" />
             </Principal>
-            <Dependent Role="LichChieuPhim">
+            <Dependent Role="LichChieuPhims">
               <PropertyRef Name="PhongChieuId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Term3_Project_MovieEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ProjectDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DanhSachPhims" EntityType="Self.DanhSachPhim" />
           <EntitySet Name="DanhSachPhongChieux" EntityType="Self.DanhSachPhongChieu" />
           <EntitySet Name="LichChieuPhims" EntityType="Self.LichChieuPhim" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <AssociationSet Name="FK_LichChieuPhim_DanhSachPhim" Association="Self.FK_LichChieuPhim_DanhSachPhim">
-            <End Role="DanhSachPhim" EntitySet="DanhSachPhims" />
-            <End Role="LichChieuPhim" EntitySet="LichChieuPhims" />
+            <End Role="DanhSachPhims" EntitySet="DanhSachPhims" />
+            <End Role="LichChieuPhims" EntitySet="LichChieuPhims" />
           </AssociationSet>
           <AssociationSet Name="FK_LichChieuPhim_DanhSachPhongChieu" Association="Self.FK_LichChieuPhim_DanhSachPhongChieu">
-            <End Role="DanhSachPhongChieu" EntitySet="DanhSachPhongChieux" />
-            <End Role="LichChieuPhim" EntitySet="LichChieuPhims" />
+            <End Role="DanhSachPhongChieux" EntitySet="DanhSachPhongChieux" />
+            <End Role="LichChieuPhims" EntitySet="LichChieuPhims" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -178,23 +179,23 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Term3_Project_MovieModelStoreContainer" CdmEntityContainer="Term3_Project_MovieEntities">
+        <EntityContainerMapping StorageEntityContainer="ProjectDatabaseModelStoreContainer" CdmEntityContainer="ProjectDatabaseEntities">
           <EntitySetMapping Name="DanhSachPhims">
-            <EntityTypeMapping TypeName="Term3_Project_MovieModel.DanhSachPhim">
-              <MappingFragment StoreEntitySet="DanhSachPhim">
-                <ScalarProperty Name="Image" ColumnName="Image" />
+            <EntityTypeMapping TypeName="ProjectDatabaseModel.DanhSachPhim">
+              <MappingFragment StoreEntitySet="DanhSachPhims">
                 <ScalarProperty Name="PhimId" ColumnName="PhimId" />
                 <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
                 <ScalarProperty Name="DaoDien" ColumnName="DaoDien" />
                 <ScalarProperty Name="ThoiLuong" ColumnName="ThoiLuong" />
                 <ScalarProperty Name="XuatXu" ColumnName="XuatXu" />
                 <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DanhSachPhongChieux">
-            <EntityTypeMapping TypeName="Term3_Project_MovieModel.DanhSachPhongChieu">
-              <MappingFragment StoreEntitySet="DanhSachPhongChieu">
+            <EntityTypeMapping TypeName="ProjectDatabaseModel.DanhSachPhongChieu">
+              <MappingFragment StoreEntitySet="DanhSachPhongChieux">
                 <ScalarProperty Name="PhongChieuId" ColumnName="PhongChieuId" />
                 <ScalarProperty Name="TenPhongChieu" ColumnName="TenPhongChieu" />
                 <ScalarProperty Name="SoLuongGhe" ColumnName="SoLuongGhe" />
@@ -202,8 +203,8 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LichChieuPhims">
-            <EntityTypeMapping TypeName="Term3_Project_MovieModel.LichChieuPhim">
-              <MappingFragment StoreEntitySet="LichChieuPhim">
+            <EntityTypeMapping TypeName="ProjectDatabaseModel.LichChieuPhim">
+              <MappingFragment StoreEntitySet="LichChieuPhims">
                 <ScalarProperty Name="LichChieuId" ColumnName="LichChieuId" />
                 <ScalarProperty Name="PhimId" ColumnName="PhimId" />
                 <ScalarProperty Name="PhongChieuId" ColumnName="PhongChieuId" />
@@ -211,7 +212,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Term3_Project_MovieModel.sysdiagram">
+            <EntityTypeMapping TypeName="ProjectDatabaseModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />

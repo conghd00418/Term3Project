@@ -13,10 +13,10 @@ namespace ASP.NET_MVC.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Term3_Project_MovieEntities : DbContext
+    public partial class ProjectDatabaseEntities : DbContext
     {
-        public Term3_Project_MovieEntities()
-            : base("name=Term3_Project_MovieEntities")
+        public ProjectDatabaseEntities()
+            : base("name=ProjectDatabaseEntities")
         {
         }
     
