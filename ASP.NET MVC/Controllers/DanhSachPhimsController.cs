@@ -13,6 +13,7 @@ namespace ASP.NET_MVC.Controllers
     public class DanhSachPhimsController : Controller
     {
         private ProjectDatabaseEntitiesFinal db = new ProjectDatabaseEntitiesFinal();
+        static int? idCurrent = 0;
 
         // GET: DanhSachPhims
         public ActionResult Index()
@@ -23,6 +24,7 @@ namespace ASP.NET_MVC.Controllers
         // GET: DanhSachPhims/Details/5
         public ActionResult Details(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -61,6 +63,7 @@ namespace ASP.NET_MVC.Controllers
         // GET: DanhSachPhims/Edit/5
         public ActionResult Edit(int? id)
         {
+            idCurrent = id;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -82,11 +85,18 @@ namespace ASP.NET_MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                danhSachPhim.PhimId = (int)idCurrent;
                 db.Entry(danhSachPhim).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(danhSachPhim);
+
+            //db.Entry(danhSachPhim).State = danhSachPhim.PhimId == 0 ?
+            //                            EntityState.Added :
+            //                            EntityState.Modified;
+            //db.SaveChanges();
+            //return RedirectToAction("Index");
         }
 
         // GET: DanhSachPhims/Delete/5
