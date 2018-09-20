@@ -9,7 +9,7 @@ namespace ASP.NET_MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private Term3_Project_MovieEntities db = new Term3_Project_MovieEntities();
+        private PrjDatabaseEntities db = new PrjDatabaseEntities();
 
         public ActionResult Index()
         {

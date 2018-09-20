@@ -12,7 +12,7 @@ namespace ASP.NET_MVC.Controllers
 {
     public class LichChieuPhimsController : Controller
     {
-        private Term3_Project_MovieEntities db = new Term3_Project_MovieEntities();
+        private PrjDatabaseEntities db = new PrjDatabaseEntities();
 
         // GET: LichChieuPhims
         public ActionResult Index()

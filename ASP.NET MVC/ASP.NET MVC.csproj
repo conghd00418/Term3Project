@@ -152,9 +152,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Data\App_Start\BundleConfig.cs" />
+    <Compile Include="App_Data\App_Start\FilterConfig.cs" />
+    <Compile Include="App_Data\App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DanhSachPhimsController.cs" />
     <Compile Include="Controllers\DanhSachPhongChieuxController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -163,35 +163,39 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhSachPhim.cs">
-      <DependentUpon>Movie.tt</DependentUpon>
+      <DependentUpon>Movies.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhSachPhongChieu.cs">
-      <DependentUpon>Movie.tt</DependentUpon>
+      <DependentUpon>Movies.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LichChieuPhim.cs">
-      <DependentUpon>Movie.tt</DependentUpon>
+      <DependentUpon>Movies.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Movie.Context.cs">
+    <Compile Include="Models\Movies.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Movie.Context.tt</DependentUpon>
+      <DependentUpon>Movies.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Movie.cs">
+    <Compile Include="Models\Movies.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Movie.tt</DependentUpon>
+      <DependentUpon>Movies.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Movie.Designer.cs">
+    <Compile Include="Models\Movies.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Movie.edmx</DependentUpon>
+      <DependentUpon>Movies.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>Movie.tt</DependentUpon>
+      <DependentUpon>Movies.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\PrjDatabase.mdf" />
+    <Content Include="App_Data\PrjDatabase_log.ldf">
+      <DependentUpon>PrjDatabase.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -206,27 +210,27 @@
     <Content Include="IMG\phim2.jpg" />
     <Content Include="IMG\phim3.jpg" />
     <Content Include="IMG\phim4.jpg" />
-    <Content Include="Models\Movie.Context.tt">
+    <Content Include="Models\Movies.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Movie.edmx</DependentUpon>
-      <LastGenOutput>Movie.Context.cs</LastGenOutput>
+      <DependentUpon>Movies.edmx</DependentUpon>
+      <LastGenOutput>Movies.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Movie.tt">
+    <Content Include="Models\Movies.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Movie.edmx</DependentUpon>
-      <LastGenOutput>Movie.cs</LastGenOutput>
+      <DependentUpon>Movies.edmx</DependentUpon>
+      <LastGenOutput>Movies.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\Movie.edmx">
+    <EntityDeploy Include="Models\Movies.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Movie.Designer.cs</LastGenOutput>
+      <LastGenOutput>Movies.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Movie.edmx.diagram">
-      <DependentUpon>Movie.edmx</DependentUpon>
+    <Content Include="Models\Movies.edmx.diagram">
+      <DependentUpon>Movies.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -269,9 +273,7 @@
     <Content Include="Views\DanhSachPhims\Edit.cshtml" />
     <Content Include="Views\DanhSachPhims\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

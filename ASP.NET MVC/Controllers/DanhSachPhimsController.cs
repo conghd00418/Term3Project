@@ -13,7 +13,7 @@ namespace ASP.NET_MVC.Controllers
 {
     public class DanhSachPhimsController : Controller
     {
-        private Term3_Project_MovieEntities db = new Term3_Project_MovieEntities();
+        private PrjDatabaseEntities db = new PrjDatabaseEntities();
         private string _filePath { get; set; }
         
         // GET: DanhSachPhims
@@ -71,8 +71,8 @@ namespace ASP.NET_MVC.Controllers
 
             if (ModelState.IsValid)
             {
-                //if (!string.IsNullOrEmpty(_filePath))
-                    //danhSachPhim.
+                if (!string.IsNullOrEmpty(_filePath))
+                    danhSachPhim.FilePath = _filePath;
                 db.DanhSachPhims.Add(danhSachPhim);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -81,6 +81,13 @@ namespace ASP.NET_MVC.Controllers
             return View(danhSachPhim);
         }
 
+        //[HttpPost]
+        //public ActionResult Create(HttpPostedFileBase file)
+        //{
+        //    
+
+        //    return View();
+        //}
         // GET: DanhSachPhims/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -137,14 +144,7 @@ namespace ASP.NET_MVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        [HttpPost]
-        public ActionResult Create(HttpPostedFileBase file)
-        {
-            
-            return View();
-        }
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)

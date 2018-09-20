@@ -12,6 +12,7 @@
     <Property Name="NoiDung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="LichChieuPhims" Relationship="Self.FK_LichChieuPhim_DanhSachPhim" FromRole="DanhSachPhim" ToRole="LichChieuPhim" />
     <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="FilePath" Type="String" Nullable="true" />
   </EntityType>
   <EntityType Name="DanhSachPhongChieu">
     <Key>

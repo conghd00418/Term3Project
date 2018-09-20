@@ -27,6 +27,7 @@ namespace ASP.NET_MVC.Models
         public string XuatXu { get; set; }
         public string NoiDung { get; set; }
         public byte[] Image { get; set; }
+        public string FilePath { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LichChieuPhim> LichChieuPhims { get; set; }
