@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -13,7 +14,8 @@ namespace ASP.NET_MVC.Controllers
     public class DanhSachPhimsController : Controller
     {
         private Term3_Project_MovieEntities db = new Term3_Project_MovieEntities();
-
+        private string _filePath { get; set; }
+        
         // GET: DanhSachPhims
         public ActionResult Index()
         {
@@ -46,10 +48,31 @@ namespace ASP.NET_MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PhimId,TenPhim,DaoDien,ThoiLuong,XuatXu,NoiDung,Image")] DanhSachPhim danhSachPhim)
+        public ActionResult Create([Bind(Include = "PhimId,TenPhim,DaoDien,ThoiLuong,XuatXu,NoiDung")] DanhSachPhim danhSachPhim, HttpPostedFileBase file)
         {
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    string fileName = Path.GetFileName(file.FileName);
+                    List<string> validExtensions = new List<string> { "png", "jpg", "jpeg" };
+                    if (validExtensions.Contains(Path.GetExtension(fileName)))
+                    {
+                        string path = Path.Combine("~/IMG", fileName);
+                        file.SaveAs(path);
+                        _filePath = path;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
             if (ModelState.IsValid)
             {
+                //if (!string.IsNullOrEmpty(_filePath))
+                    //danhSachPhim.
                 db.DanhSachPhims.Add(danhSachPhim);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -113,6 +136,13 @@ namespace ASP.NET_MVC.Controllers
             db.DanhSachPhims.Remove(danhSachPhim);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult Create(HttpPostedFileBase file)
+        {
+            
+            return View();
         }
 
         protected override void Dispose(bool disposing)

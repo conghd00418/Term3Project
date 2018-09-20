@@ -7,27 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ASP.NET_MVC.Models
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+
+public partial class Term3_Project_MovieEntities : DbContext
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    
-    public partial class Term3_Project_MovieEntities : DbContext
+    public Term3_Project_MovieEntities()
+        : base("name=Term3_Project_MovieEntities")
     {
-        public Term3_Project_MovieEntities()
-            : base("name=Term3_Project_MovieEntities")
-        {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
-        public virtual DbSet<DanhSachPhim> DanhSachPhims { get; set; }
-        public virtual DbSet<DanhSachPhongChieu> DanhSachPhongChieux { get; set; }
-        public virtual DbSet<LichChieuPhim> LichChieuPhims { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        throw new UnintentionalCodeFirstException();
+    }
+
+    public virtual DbSet<DanhSachPhim> DanhSachPhims { get; set; }
+    public virtual DbSet<DanhSachPhongChieu> DanhSachPhongChieux { get; set; }
+    public virtual DbSet<LichChieuPhim> LichChieuPhims { get; set; }
+    public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 }
