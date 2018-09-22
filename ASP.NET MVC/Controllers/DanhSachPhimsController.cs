@@ -48,46 +48,66 @@ namespace ASP.NET_MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PhimId,TenPhim,DaoDien,ThoiLuong,XuatXu,NoiDung")] DanhSachPhim danhSachPhim, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "PhimId,TenPhim,DaoDien,ThoiLuong,XuatXu,NoiDung,FilePath")] DanhSachPhim danhSachPhim, HttpPostedFileBase FilePath)
         {
-            try
-            {
-                if (file.ContentLength > 0)
-                {
-                    string fileName = Path.GetFileName(file.FileName);
-                    List<string> validExtensions = new List<string> { "png", "jpg", "jpeg" };
-                    if (validExtensions.Contains(Path.GetExtension(fileName)))
-                    {
-                        string path = Path.Combine("~/IMG", fileName);
-                        file.SaveAs(path);
-                        _filePath = path;
-                    }
-                }
-            }
-            catch (Exception)
-            {
-
-            }
-
             if (ModelState.IsValid)
             {
-                if (!string.IsNullOrEmpty(_filePath))
-                    danhSachPhim.FilePath = _filePath;
-                db.DanhSachPhims.Add(danhSachPhim);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                try
+                {
 
-            return View(danhSachPhim);
+                    if (FilePath != null)
+                    {
+                        string path = Path.Combine(Server.MapPath("~/IMG"), Path.GetFileName(FilePath.FileName));
+                        FilePath.SaveAs(path);
+
+                        danhSachPhim.FilePath = FilePath.FileName;
+                        db.DanhSachPhims.Add(danhSachPhim);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    return View(danhSachPhim);
+                    //ViewBag.FileStatus = "File uploaded successfully.";
+                }
+                catch (Exception)
+                {
+
+                    ViewBag.FileStatus = "Error while file uploading.";
+                }
+
+            }
+            return View();
+            //try
+            //{
+            //    if (file.ContentLength > 0)
+            //    {
+            //        string fileName = Path.GetFileName(file.FileName);
+            //        List<string> validExtensions = new List<string> { "png", "jpg", "jpeg" };
+            //        if (validExtensions.Contains(Path.GetExtension(fileName)))
+            //        {
+            //            string path = Path.Combine("~/IMG", fileName);
+            //            file.SaveAs(path);
+            //            _filePath = path;
+            //        }
+            //    }
+            //}
+            //catch (Exception)
+            //{
+
+            //}
+            //return View();
+            //if (ModelState.IsValid)
+            //{
+            //    if (!string.IsNullOrEmpty(_filePath))
+            //        danhSachPhim.FilePath = _filePath;
+            //    db.DanhSachPhims.Add(danhSachPhim);
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+
+            //return View(danhSachPhim);
         }
 
-        //[HttpPost]
-        //public ActionResult Create(HttpPostedFileBase file)
-        //{
-        //    
-
-        //    return View();
-        //}
+        
         // GET: DanhSachPhims/Edit/5
         public ActionResult Edit(int? id)
         {

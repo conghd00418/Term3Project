@@ -11,7 +11,9 @@ namespace ASP.NET_MVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Web;
+
     public partial class DanhSachPhim
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,7 +29,10 @@ namespace ASP.NET_MVC.Models
         public string XuatXu { get; set; }
         public string NoiDung { get; set; }
         public byte[] Image { get; set; }
+
+        [DataType(DataType.Upload)]
         public string FilePath { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LichChieuPhim> LichChieuPhims { get; set; }

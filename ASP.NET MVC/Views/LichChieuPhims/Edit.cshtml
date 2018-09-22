@@ -19,7 +19,7 @@
         @Html.HiddenFor(model => model.LichChieuId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PhimId, "PhimId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2"> Tên phim</label>
             <div class="col-md-10">
                 @Html.DropDownList("PhimId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PhimId, "", new { @class = "text-danger" })
@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PhongChieuId, "PhongChieuId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2"> Tên phòng chiếu</label>
             <div class="col-md-10">
                 @Html.DropDownList("PhongChieuId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PhongChieuId, "", new { @class = "text-danger" })
@@ -43,7 +43,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Trở lại", "Index")
 </div>
 
 @section Scripts {

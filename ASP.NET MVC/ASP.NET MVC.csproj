@@ -207,9 +207,6 @@
     <Content Include="IMG\banner1.jpg" />
     <Content Include="IMG\banner2.jpg" />
     <Content Include="IMG\phim1.jpg" />
-    <Content Include="IMG\phim2.jpg" />
-    <Content Include="IMG\phim3.jpg" />
-    <Content Include="IMG\phim4.jpg" />
     <Content Include="Models\Movies.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Movies.edmx</DependentUpon>

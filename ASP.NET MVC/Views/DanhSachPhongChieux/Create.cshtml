@@ -5,19 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Thêm phòng chiếu</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>DanhSachPhongChieu</h4>
+        @*<h4>DanhSachPhongChieu</h4>*@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.TenPhongChieu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2"> Tên phòng chiếu</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TenPhongChieu, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TenPhongChieu, "", new { @class = "text-danger" })
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SoLuongGhe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2"> Số lượng ghế</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SoLuongGhe, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SoLuongGhe, "", new { @class = "text-danger" })
